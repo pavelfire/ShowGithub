@@ -4,12 +4,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class GithubNetwork : GithubApi {
-    override suspend fun getRepos(user: String, pass: String): List<RepoDTO> {
+
+
+    override suspend fun getRepos(name: String): List<RepoDTO> {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(GithubApi.BASE_URL)
             .build()
-            .create(GithubApi::class.java).getRepos(user, pass)
+            .create(GithubApi::class.java).getRepos(name)
     }
 
     override suspend fun getPVRepos(code: String, page: Int): List<RepoDTO> {
