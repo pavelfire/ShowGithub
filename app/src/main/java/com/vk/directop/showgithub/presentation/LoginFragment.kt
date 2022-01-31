@@ -1,4 +1,4 @@
-package com.vk.directop.showgithub
+package com.vk.directop.showgithub.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+//import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.vk.directop.showgithub.databinding.FragmentLoginBinding
 
 
@@ -32,8 +34,11 @@ class LoginFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         //binding.name.text = viewModel.name
-        binding.btLogin.setOnClickListener {
+        binding.btSignIn.setOnClickListener {
             viewModel.loginClicked()
+            val action = LoginFragmentDirections.actionLoginFragmentToListRepoFragment()//viewModel.score.value ?: 0)
+            findNavController(this).navigate(action)
+            //val
 
         }
 
