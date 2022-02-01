@@ -1,12 +1,18 @@
 package com.vk.directop.showgithub.presentation.list_repo
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.findFragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.vk.directop.showgithub.R
 import com.vk.directop.showgithub.domain.model.RepoDomain
+import com.vk.directop.showgithub.presentation.login.LoginFragmentDirections
 
 class ListRepoAdapter (private val repoList: List<RepoDomain>) : RecyclerView.Adapter<RepoViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
@@ -37,5 +43,13 @@ class RepoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         tvName.text = repo.name
         tvLanguage.text = repo.language
         tvDescription.text = repo.description
+
+        val layoutItem : ConstraintLayout = itemView.findViewById(R.id.layout_item)
+        layoutItem.setOnClickListener {
+
+            Log.d("MyTag", "Pressed: ${repo.name}")
+            val action = ListRepoFragmentDirections.actionListRepoFragmentToDetailFragment()
+            NavHostFragment.findNavController(itemView.findFragment()).navigate(action)
+        }
     }
 }

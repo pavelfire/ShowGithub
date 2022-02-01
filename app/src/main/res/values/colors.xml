@@ -10,7 +10,11 @@
     <color name="background">#FF151515</color>
     <color name="font_color">#FF797979</color>
     <color name="bt_color">#327A26</color>
-    <color name="name_color">#6489E6</color>
+    <color name="name_color">#7699F0</color>
     <color name="language_color">#7A69BF</color>
-    <color name="description_color">#A1A6A0</color>
+    <color name="description_color">#EAECE9</color>
+
+    <color name="gold_color">#F0C275</color>
+    <color name="forks_color">#8CF075</color>
+    <color name="watchers_color">#75E6F0</color>
 </resources>
