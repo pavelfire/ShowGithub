@@ -21,4 +21,20 @@ class GithubNetwork : GithubApi {
             .build()
             .create(GithubApi::class.java).getPVRepos("user", 1)
     }
+
+    override suspend fun getUserRepos(username: String): List<RepoDTO> {
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(GithubApi.BASE_URL)
+            .build()
+            .create(GithubApi::class.java).getPVRepos("user", 1)
+    }
+
+    override suspend fun getAuthRepos(u: String, authHeader: String): List<RepoDTO> {
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(GithubApi.BASE_URL)
+            .build()
+            .create(GithubApi::class.java).getPVRepos("user", 1)
+    }
 }

@@ -1,4 +1,4 @@
-package com.vk.directop.showgithub.presentation
+package com.vk.directop.showgithub.presentation.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

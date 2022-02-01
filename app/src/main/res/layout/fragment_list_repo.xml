@@ -3,12 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ListRepoFragment">
+    android:background="@color/background"
+    tools:context=".presentation.list_repo.ListRepoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <!--TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="list repo fragment" />
+        android:textColor="@color/description_color"
+        android:text="list repo fragment" /-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/repos_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </FrameLayout>

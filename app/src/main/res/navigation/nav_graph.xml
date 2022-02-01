@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.vk.directop.showgithub.presentation.LoginFragment"
+        android:name="com.vk.directop.showgithub.presentation.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/listRepoFragment"
-        android:name="com.vk.directop.showgithub.presentation.ListRepoFragment"
+        android:name="com.vk.directop.showgithub.presentation.list_repo.ListRepoFragment"
         android:label="fragment_list_repo"
         tools:layout="@layout/fragment_list_repo" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.vk.directop.showgithub.presentation.DetailFragment"
+        android:name="com.vk.directop.showgithub.presentation.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
 </navigation>

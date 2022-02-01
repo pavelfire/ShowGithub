@@ -1,4 +1,4 @@
-package com.vk.directop.showgithub.presentation
+package com.vk.directop.showgithub.presentation.login
 
 import android.util.Log
 import androidx.lifecycle.LiveData
