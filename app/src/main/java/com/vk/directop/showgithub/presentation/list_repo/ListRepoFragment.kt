@@ -62,62 +62,62 @@ class ListRepoFragment : Fragment() {
             RepoDomain(
                 name = "moko-web3",
                 language = "Kotlin",
-                //description = "Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development"
+                description = "Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development"
             ),
             RepoDomain(
                 name = "moko-resources",
                 language = "Kotlin",
-                //description = "Resources access for mobile (android & ios) Kotlin Multiplatform development"
+                description = "Resources access for mobile (android & ios) Kotlin Multiplatform development"
             ),
             RepoDomain(
                 name = "libs.kmp.icerock.dev",
                 language = "JavaScript",
-                //description = "O it is description of this repo."
+                description = "O it is description of this repo."
             ),
             RepoDomain(
                 name = "kmm.icerock.dev",
                 language = "JavaScript",
-                //description = ""
+                description = ""
             ),
             RepoDomain(
                 name = "moko-web3",
                 language = "Kotlin",
-                //description = "Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development"
+                description = "Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development"
             ),
             RepoDomain(
                 name = "moko-resources",
                 language = "Kotlin",
-                //description = "O it is description of this repo."
+                description = "O it is description of this repo."
             ),
             RepoDomain(
                 name = "libs.kmp.icerock.dev",
                 language = "JavaScript",
-                //description = "O it is description of this repo."
+                description = "O it is description of this repo."
             ),
             RepoDomain(
                 name = "Its name",
                 language = "Kotlin",
-                //description = "O it is description of this repo."
+                description = "O it is description of this repo."
             ),
             RepoDomain(
                 name = "moko-web3",
                 language = "Kotlin",
-                //description = "Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development"
+                description = "Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development"
             ),
             RepoDomain(
                 name = "moko-resources",
                 language = "Kotlin",
-                //description = "O it is description of this repo."
+                description = "O it is description of this repo."
             ),
             RepoDomain(
                 name = "libs.kmp.icerock.dev",
                 language = "JavaScript",
-                //description = "O it is description of this repo."
+                description = "O it is description of this repo."
             ),
             RepoDomain(
                 name = "Its name",
                 language = "Kotlin",
-                //description = "O it is description of this repo."
+                description = "O it is description of this repo."
             ),
         )
 

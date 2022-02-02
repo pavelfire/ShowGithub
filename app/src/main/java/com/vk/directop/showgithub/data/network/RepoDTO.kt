@@ -19,7 +19,7 @@ data class RepoDTO(
     val created_at: String,
     val default_branch: String,
     val deployments_url: String,
-    val description: Any,
+    val description: Any?,
     val disabled: Boolean,
     val downloads_url: String,
     val events_url: String,
@@ -86,6 +86,6 @@ fun RepoDTO.toRepoDomain() : RepoDomain{
     return RepoDomain(
         name =name,
         language = language,
-        //description = description.toString()?: ""
+        description = (description?:"") as String
     )
 }

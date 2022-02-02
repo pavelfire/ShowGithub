@@ -50,7 +50,7 @@ class RepoAdapter : RecyclerView.Adapter<RepoAdapter.OneRepoViewHolder>() {
 
             tvName.text = repo.name
             tvLanguage.text = repo.language
-            tvDescription.text = "repo.description"
+            tvDescription.text = repo.description
 
             val layoutItem: ConstraintLayout = this.findViewById(R.id.layout_item)
             layoutItem.setOnClickListener {
