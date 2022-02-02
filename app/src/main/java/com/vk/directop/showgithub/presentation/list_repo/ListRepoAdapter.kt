@@ -9,12 +9,16 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.vk.directop.showgithub.R
 import com.vk.directop.showgithub.domain.model.RepoDomain
 import com.vk.directop.showgithub.presentation.login.LoginFragmentDirections
 
-class ListRepoAdapter (private val repoList: List<RepoDomain>) : RecyclerView.Adapter<RepoViewHolder>() {
+class ListRepoAdapter
+    (private val repoList: List<RepoDomain>)
+    : RecyclerView.Adapter<RepoViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
         val repoListItemView =
             LayoutInflater.from(parent.context)
@@ -31,6 +35,24 @@ class ListRepoAdapter (private val repoList: List<RepoDomain>) : RecyclerView.Ad
     override fun getItemCount(): Int {
         return repoList.size
     }
+
+    private val diffCallback = object : DiffUtil.ItemCallback<RepoDomain>() {
+        override fun areItemsTheSame(oldItem: RepoDomain, newItem: RepoDomain): Boolean {
+            return oldItem.name == newItem.name
+        }
+
+        override fun areContentsTheSame(oldItem: RepoDomain, newItem: RepoDomain): Boolean {
+            return oldItem == newItem
+        }
+
+    }
+
+    private val differ = AsyncListDiffer(this, diffCallback)
+    var listRepos: List<RepoDomain>
+        get() = differ.currentList
+        set(value) {
+            differ.submitList(value)
+        }
 }
 
 class RepoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -42,7 +64,7 @@ class RepoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         tvName.text = repo.name
         tvLanguage.text = repo.language
-        tvDescription.text = repo.description
+        tvDescription.text = "repo.description"
 
         val layoutItem : ConstraintLayout = itemView.findViewById(R.id.layout_item)
         layoutItem.setOnClickListener {

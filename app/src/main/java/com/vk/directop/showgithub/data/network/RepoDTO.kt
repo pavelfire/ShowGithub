@@ -1,5 +1,7 @@
 package com.vk.directop.showgithub.data.network
 
+import com.vk.directop.showgithub.domain.model.RepoDomain
+
 data class RepoDTO(
     val allow_forking: Boolean,
     val archive_url: String,
@@ -79,3 +81,11 @@ data class RepoDTO(
     val watchers: Int,
     val watchers_count: Int
 )
+
+fun RepoDTO.toRepoDomain() : RepoDomain{
+    return RepoDomain(
+        name =name,
+        language = language,
+        //description = description.toString()?: ""
+    )
+}

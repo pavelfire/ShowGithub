@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
 
-    private val _eventGameFinish = MutableLiveData<Boolean>()
-    val eventGameFinish: LiveData<Boolean>
-        get() = _eventGameFinish
+    private val _eventLogin = MutableLiveData<Boolean>()
+    val eventLogin: LiveData<Boolean>
+        get() = _eventLogin
 
     fun loginClicked(){
         Log.d("MyTag", "login clicked in view model")

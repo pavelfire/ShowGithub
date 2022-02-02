@@ -20,18 +20,6 @@ import retrofit2.http.Path
 
 interface GithubApi {
 
-    @GET("/users/octocat/repos")
-    suspend fun getRepos(
-        @Query("username") name: String
-
-    ): List<RepoDTO>
-
-    @GET("/users/pavelfire/repos")
-    suspend fun getPVRepos(
-        @Query("code") code: String,
-        @Query("p") page: Int
-    ): List<RepoDTO>
-
     @GET("/users/{username}/repos")
     suspend fun getUserRepos(
         @Path("username") username: String
@@ -44,31 +32,24 @@ interface GithubApi {
         @Header("Authorization") authHeader: String
     ) : List<RepoDTO>
 
+
+    @GET("/users/pavelfire/repos")
+    suspend fun getPVRepos(
+        @Query("code") code: String,
+        @Query("p") page: Int
+    ): List<RepoDTO>
+
+
     companion object{
         const val BASE_URL = "https://api.github.com"
     }
+
 
     @Throws(UnsupportedEncodingException::class)
     fun getBase64String(value: String): String? {
         return Base64.encodeToString(value.toByteArray(charset("UTF-8")), Base64.NO_WRAP)
     }
 
-    fun allS(){
-        val token = "ffeertrt"
 
-
-        var client: OkHttpClient = OkHttpClient.Builder().addInterceptor(Interceptor { chain ->
-            val newRequest: Request = chain.request().newBuilder()
-                .addHeader("Authorization", "Bearer $token")
-                .build()
-            chain.proceed(newRequest)
-        }).build()
-
-        var retrofit: Retrofit = Retrofit.Builder()
-            .client(client)
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
 
 }

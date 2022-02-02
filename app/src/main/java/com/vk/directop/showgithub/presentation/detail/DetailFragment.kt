@@ -1,5 +1,7 @@
 package com.vk.directop.showgithub.presentation.detail
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,4 +28,9 @@ class DetailFragment : Fragment() {
     companion object {
 
     }
+
+    //открывает браузер и переходит по ссылке
+//    val link = Uri.parse("https://ya.ru")
+//    val intent = Intent(Intent.ACTION_VIEW, link)
+//    startActivity(intent)
 }
