@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 //https://kmm.icerock.dev/university/android-basics/practice
 //https://api.github.com/users/octocat/repos
 
-//Ice Rock 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
+
 
 //https://yandex.ru/search/?clid=1882628&text=curl+-i+-u+your_username%3Ayour_token+https%3A%2F%2Fapi.github.com%2Fuser+to+get+retrofit&l10n=ru&lr=47
 //https://www.andreyolegovich.ru/testing/api/github.php
