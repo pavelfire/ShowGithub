@@ -21,14 +21,14 @@ class LoginViewModel : ViewModel() {
 
     fun login(username: String, token: String) = viewModelScope.launch {
         _loginUiState.value = LoginUiState.Loading
-        delay(2000L)
+        delay(1300L)
         if(username == "and" && token == "and"){
             _loginUiState.value = LoginUiState.Success
             _eventLogin.value = true
         }else if(username.isEmpty() || token.isEmpty()){
             _loginUiState.value = LoginUiState.Error("Username and token must not be empty.")
         }else{
-            _loginUiState.value = LoginUiState.Error("Wrong credentials.")
+            _loginUiState.value = LoginUiState.Error("Wrong credentials! For enter write username: and token: and")
         }
     }
 
