@@ -13,6 +13,11 @@ class GithubRepositoryImpl(private val githubApi: GithubApi) : GithubRepository 
         return mapToDomainRepo(result)
     }
 
+    override suspend fun login(username : String, token: String): List<RepoDomain> {
+        val result = githubApi.login(username)
+        return mapToDomainRepo(result)
+    }
+
     private fun mapToDomainRepo(oldList: List<RepoDTO>) : List<RepoDomain>{
         return oldList.map { it.toRepoDomain() }
     }

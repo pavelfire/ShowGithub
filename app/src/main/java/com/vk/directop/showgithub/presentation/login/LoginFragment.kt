@@ -41,10 +41,13 @@ class LoginFragment : Fragment() {
 
         //viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
+        var name = ""
+
         binding.btSignIn.setOnClickListener {
+            name = binding.etUsername.text.toString()
             viewModel.loginClicked()
             viewModel.login(
-                binding.etUsername.text.toString(),
+                name,
                 binding.etToken.text.toString()
             )
         }

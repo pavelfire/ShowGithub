@@ -26,18 +26,11 @@ interface GithubApi {
     ) : List<RepoDTO>
 
 
-    @GET("/users/pavelfire/repos")
-    suspend fun getAuthRepos(
-        @Path("u") u: String,
-        @Header("Authorization") authHeader: String
+    @GET("/users/{username}/repos")
+    suspend fun login(
+        @Path("username") username: String,
+        //@Header("Authorization") authHeader: String
     ) : List<RepoDTO>
-
-
-    @GET("/users/pavelfire/repos")
-    suspend fun getPVRepos(
-        @Query("code") code: String,
-        @Query("p") page: Int
-    ): List<RepoDTO>
 
 
     companion object{
@@ -50,6 +43,5 @@ interface GithubApi {
         return Base64.encodeToString(value.toByteArray(charset("UTF-8")), Base64.NO_WRAP)
     }
 
-
-
 }
+//https://docs.github.com/en

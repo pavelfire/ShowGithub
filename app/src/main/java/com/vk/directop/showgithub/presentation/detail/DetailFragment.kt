@@ -3,11 +3,13 @@ package com.vk.directop.showgithub.presentation.detail
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.vk.directop.showgithub.R
+import kotlin.system.exitProcess
 
 
 class DetailFragment : Fragment() {
@@ -22,11 +24,30 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        setHasOptionsMenu(true)
+
         return inflater.inflate(R.layout.fragment_detail, container, false)
     }
 
     companion object {
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_exit -> {
+                exitProcess(-1)
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
     }
 
     //открывает браузер и переходит по ссылке

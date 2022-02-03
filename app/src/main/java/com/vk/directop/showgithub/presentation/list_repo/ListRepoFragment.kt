@@ -1,13 +1,13 @@
 package com.vk.directop.showgithub.presentation.list_repo
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +15,7 @@ import com.vk.directop.showgithub.R
 import com.vk.directop.showgithub.data.network.RepoDTO
 import com.vk.directop.showgithub.domain.model.RepoDomain
 import kotlinx.coroutines.launch
+import kotlin.system.exitProcess
 
 
 class ListRepoFragment : Fragment() {
@@ -30,6 +31,8 @@ class ListRepoFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_list_repo, container, false)
 
         viewModel = ViewModelProvider(this).get(ListRepoViewModel::class.java)
+
+        setHasOptionsMenu(true)
 
         val reposRecyclerView: RecyclerView = view.findViewById(R.id.repos_recycler_view)
         reposRecyclerView.layoutManager =
@@ -57,69 +60,22 @@ class ListRepoFragment : Fragment() {
         return view
     }
 
-    companion object {
-        val repoList = listOf(
-            RepoDomain(
-                name = "moko-web3",
-                language = "Kotlin",
-                description = "Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development"
-            ),
-            RepoDomain(
-                name = "moko-resources",
-                language = "Kotlin",
-                description = "Resources access for mobile (android & ios) Kotlin Multiplatform development"
-            ),
-            RepoDomain(
-                name = "libs.kmp.icerock.dev",
-                language = "JavaScript",
-                description = "O it is description of this repo."
-            ),
-            RepoDomain(
-                name = "kmm.icerock.dev",
-                language = "JavaScript",
-                description = ""
-            ),
-            RepoDomain(
-                name = "moko-web3",
-                language = "Kotlin",
-                description = "Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development"
-            ),
-            RepoDomain(
-                name = "moko-resources",
-                language = "Kotlin",
-                description = "O it is description of this repo."
-            ),
-            RepoDomain(
-                name = "libs.kmp.icerock.dev",
-                language = "JavaScript",
-                description = "O it is description of this repo."
-            ),
-            RepoDomain(
-                name = "Its name",
-                language = "Kotlin",
-                description = "O it is description of this repo."
-            ),
-            RepoDomain(
-                name = "moko-web3",
-                language = "Kotlin",
-                description = "Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development"
-            ),
-            RepoDomain(
-                name = "moko-resources",
-                language = "Kotlin",
-                description = "O it is description of this repo."
-            ),
-            RepoDomain(
-                name = "libs.kmp.icerock.dev",
-                language = "JavaScript",
-                description = "O it is description of this repo."
-            ),
-            RepoDomain(
-                name = "Its name",
-                language = "Kotlin",
-                description = "O it is description of this repo."
-            ),
-        )
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.options_menu, menu)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_exit -> {
+                exitProcess(-1)
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
+
 }
