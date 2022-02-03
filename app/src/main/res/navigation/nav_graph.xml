@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.vk.directop.showgithub.presentation.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:label="Show Github"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_listRepoFragment"
             app:destination="@id/listRepoFragment" />
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/listRepoFragment"
         android:name="com.vk.directop.showgithub.presentation.list_repo.ListRepoFragment"
-        android:label="Repo list"
+        android:label="Repositories"
         tools:layout="@layout/fragment_list_repo">
         <action
             android:id="@+id/action_listRepoFragment_to_detailFragment"
