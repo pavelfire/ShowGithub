@@ -72,8 +72,4 @@ class LoginViewModel : ViewModel() {
         Log.d("MyTag", "login clicked in view model")
     }
 
-
-    init {
-
-    }
 }

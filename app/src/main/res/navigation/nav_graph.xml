@@ -17,15 +17,19 @@
     <fragment
         android:id="@+id/listRepoFragment"
         android:name="com.vk.directop.showgithub.presentation.list_repo.ListRepoFragment"
-        android:label="fragment_list_repo"
-        tools:layout="@layout/fragment_list_repo" >
+        android:label="Repo list"
+        tools:layout="@layout/fragment_list_repo">
         <action
             android:id="@+id/action_listRepoFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.vk.directop.showgithub.presentation.detail.DetailFragment"
-        android:label="fragment_detail"
+        android:label="detail repo"
         tools:layout="@layout/fragment_detail" />
 </navigation>

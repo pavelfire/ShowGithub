@@ -1,6 +1,7 @@
 package com.vk.directop.showgithub.presentation.list_repo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -44,9 +45,9 @@ class ListRepoFragment : Fragment() {
             )
         )
 
+        Log.d("MyTag", " Is is received ${ListRepoFragmentArgs.fromBundle(arguments!!).name}")
+        viewModel.fillList(ListRepoFragmentArgs.fromBundle(arguments!!).name)
 
-        //reposRecyclerView.adapter = ListRepoAdapter(repoList)
-        //reposRecyclerView.adapter = viewModel.response.value?.let { ListRepoAdapter(it) }
         reposRecyclerView.apply {
             listRepoAdapter = RepoAdapter()
             adapter = listRepoAdapter
@@ -56,7 +57,6 @@ class ListRepoFragment : Fragment() {
             listRepoAdapter.differ.submitList(list)
 
         })
-
         return view
     }
 

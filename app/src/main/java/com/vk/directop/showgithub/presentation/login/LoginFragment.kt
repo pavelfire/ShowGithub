@@ -1,21 +1,17 @@
 package com.vk.directop.showgithub.presentation.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.google.android.material.snackbar.Snackbar
-//import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.vk.directop.showgithub.databinding.FragmentLoginBinding
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 
 class LoginFragment : Fragment() {
@@ -25,12 +21,9 @@ class LoginFragment : Fragment() {
 
     //private lateinit var viewModel: LoginViewModel
 
+    private var name = ""
+
     private val viewModel: LoginViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,8 +34,6 @@ class LoginFragment : Fragment() {
 
         //viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        var name = ""
-
         binding.btSignIn.setOnClickListener {
             name = binding.etUsername.text.toString()
             viewModel.loginClicked()
@@ -51,15 +42,6 @@ class LoginFragment : Fragment() {
                 binding.etToken.text.toString()
             )
         }
-
-        viewModel.eventLogin.observe(viewLifecycleOwner, Observer { login ->
-            if(login){
-                val action =
-                    LoginFragmentDirections.actionLoginFragmentToListRepoFragment()//viewModel.score.value ?: 0)
-                findNavController(this).navigate(action)
-            }
-        })
-
 
         lifecycleScope.launchWhenCreated {
             viewModel.loginUiState.collect {
@@ -71,6 +53,7 @@ class LoginFragment : Fragment() {
                             Snackbar.LENGTH_LONG
                         ).show()
                         binding.progressBar.isVisible = false
+                        onCredentialOk(name)
                     }
                     is LoginViewModel.LoginUiState.Error -> {
                         Snackbar.make(
@@ -87,18 +70,16 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-
-
-
         return view
-    }
-
-    companion object {
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun onCredentialOk(name: String) {
+        val action = LoginFragmentDirections.actionLoginFragmentToListRepoFragment(name = name)
+        findNavController(this).navigate(action)
     }
 }
