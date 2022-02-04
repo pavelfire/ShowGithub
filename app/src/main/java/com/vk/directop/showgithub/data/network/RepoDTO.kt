@@ -82,10 +82,17 @@ data class RepoDTO(
     val watchers_count: Int
 )
 
-fun RepoDTO.toRepoDomain() : RepoDomain{
+fun RepoDTO.toRepoDomain(): RepoDomain {
     return RepoDomain(
-        name =name,
+        id = id,
+        name = name,
         language = language,
-        description = (description?:"") as String
-    )
+        description = (description ?: "") as String,
+        forks = forks,
+        html_url = html_url,
+        license = license?.toString() ?: "",
+        stargazers_count = stargazers_count,
+        watchers = watchers,
+
+        )
 }

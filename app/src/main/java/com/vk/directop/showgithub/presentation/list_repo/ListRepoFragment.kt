@@ -55,7 +55,6 @@ class ListRepoFragment : Fragment() {
         }
         viewModel.response.observe(viewLifecycleOwner, Observer { list ->
             listRepoAdapter.differ.submitList(list)
-
         })
         return view
     }

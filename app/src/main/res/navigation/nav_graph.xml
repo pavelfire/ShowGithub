@@ -31,5 +31,28 @@
         android:id="@+id/detailFragment"
         android:name="com.vk.directop.showgithub.presentation.detail.DetailFragment"
         android:label="detail repo"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="html_url"
+            app:argType="string" />
+        <argument
+            android:name="license"
+            app:argType="string" />
+        <argument
+            android:name="stars"
+            app:argType="integer" />
+        <argument
+            android:name="forks"
+            app:argType="integer" />
+        <argument
+            android:name="watchers"
+            app:argType="integer" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+
+    </fragment>
 </navigation>

@@ -52,7 +52,7 @@ class LoginViewModel : ViewModel() {
             }
 
             _loginUiState.value = LoginUiState.Success
-            _eventLogin.value = true
+            //_eventLogin.value = true
         } else if (username.isEmpty() || token.isEmpty()) {
             _loginUiState.value = LoginUiState.Error("Username and token must not be empty.")
         } else {

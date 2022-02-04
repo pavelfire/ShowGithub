@@ -77,7 +77,38 @@
             android:text="10"
             android:textColor="@color/watchers_color"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/watchers"
+            app:layout_constraintEnd_toStartOf="@+id/tv_watchers_word"
+            app:layout_constraintTop_toTopOf="@+id/tv_stargazers_count" />
+        <TextView
+            android:id="@+id/tv_forks_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="forks"
+            android:textColor="@color/description_color"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_foks"
+            app:layout_constraintTop_toTopOf="@+id/tv_stargazers_count" />
+
+        <TextView
+            android:id="@+id/tv_stars_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="stars"
+            android:textColor="@color/description_color"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_stargazers_count"
+            app:layout_constraintTop_toTopOf="@+id/tv_stargazers_count" />
+
+        <TextView
+            android:id="@+id/tv_watchers_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="watchers"
+            android:textColor="@color/description_color"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_stargazers_count" />
 
         <TextView
@@ -92,37 +123,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_stargazers_count" />
 
-        <TextView
-            android:id="@+id/forks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="forks"
-            android:textColor="@color/description_color"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_foks"
-            app:layout_constraintTop_toTopOf="@+id/tv_stargazers_count" />
 
-        <TextView
-            android:id="@+id/stars"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="stars"
-            android:textColor="@color/description_color"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_stargazers_count"
-            app:layout_constraintTop_toTopOf="@+id/tv_stargazers_count" />
-
-        <TextView
-            android:id="@+id/watchers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="watchers"
-            android:textColor="@color/description_color"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_stargazers_count" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

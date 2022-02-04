@@ -1,37 +1,54 @@
 package com.vk.directop.showgithub.presentation.detail
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.vk.directop.showgithub.R
+import com.vk.directop.showgithub.databinding.FragmentDetailBinding
 import kotlin.system.exitProcess
 
 
 class DetailFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private var _binding: FragmentDetailBinding? = null
+    private val binding get() = _binding!!
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         setHasOptionsMenu(true)
 
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+        _binding = FragmentDetailBinding.inflate(layoutInflater)
+        val view = binding.root
+
+
+        val licenseName = DetailFragmentArgs.fromBundle(arguments!!).license
+            .substringAfter("name=")
+            .substringBefore(',')
+
+        val repo = DetailFragmentArgs.fromBundle(arguments!!).stars
+        Log.d("MyTag", "--------Received id: ${repo}")
+        //viewModel.fillList(ListRepoFragmentArgs.fromBundle(arguments!!).name)
+
+        (activity as AppCompatActivity).supportActionBar?.title = DetailFragmentArgs.fromBundle(arguments!!).name
+        binding.apply {
+            tvLink.text = DetailFragmentArgs.fromBundle(arguments!!).htmlUrl
+            tvLicense.text = licenseName
+            tvStargazersCount.text = DetailFragmentArgs.fromBundle(arguments!!).stars.toString()
+            tvFoks.text = DetailFragmentArgs.fromBundle(arguments!!).forks.toString()
+            tvWatchers.text = DetailFragmentArgs.fromBundle(arguments!!).watchers.toString()
+            tvText.text = DetailFragmentArgs.fromBundle(arguments!!).description
+        }
+
+
+        return view
     }
 
-    companion object {
 
-    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)

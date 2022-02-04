@@ -56,7 +56,15 @@ class RepoAdapter : RecyclerView.Adapter<RepoAdapter.OneRepoViewHolder>() {
             layoutItem.setOnClickListener {
 
                 Log.d("MyTag", "Pressed: ${repo.name}")
-                val action = ListRepoFragmentDirections.actionListRepoFragmentToDetailFragment()
+                val action = ListRepoFragmentDirections.actionListRepoFragmentToDetailFragment(
+                    repo.html_url,
+                    repo.license,
+                    repo.stargazers_count,
+                    repo.forks,
+                    repo.watchers,
+                    repo.description,
+                    repo.name
+                    )
                 NavHostFragment.findNavController(this.findFragment()).navigate(action)
             }
         }
