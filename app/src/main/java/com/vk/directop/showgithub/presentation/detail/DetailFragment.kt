@@ -1,5 +1,7 @@
 package com.vk.directop.showgithub.presentation.detail
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -26,6 +28,7 @@ class DetailFragment : Fragment() {
         val view = binding.root
 
 
+        val htmlUrl = DetailFragmentArgs.fromBundle(arguments!!).htmlUrl
         val licenseName = DetailFragmentArgs.fromBundle(arguments!!).license
             .substringAfter("name=")
             .substringBefore(',')
@@ -36,12 +39,18 @@ class DetailFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.title = DetailFragmentArgs.fromBundle(arguments!!).name
         binding.apply {
-            tvLink.text = DetailFragmentArgs.fromBundle(arguments!!).htmlUrl
+            tvLink.text = htmlUrl
             tvLicense.text = licenseName
             tvStargazersCount.text = DetailFragmentArgs.fromBundle(arguments!!).stars.toString()
             tvFoks.text = DetailFragmentArgs.fromBundle(arguments!!).forks.toString()
             tvWatchers.text = DetailFragmentArgs.fromBundle(arguments!!).watchers.toString()
             tvText.text = DetailFragmentArgs.fromBundle(arguments!!).description
+
+            tvLink.setOnClickListener {
+                val link = Uri.parse(htmlUrl)
+                val intent = Intent(Intent.ACTION_VIEW, link)
+                startActivity(intent)
+            }
         }
 
 
@@ -66,9 +75,4 @@ class DetailFragment : Fragment() {
             }
         }
     }
-
-    //открывает браузер и переходит по ссылке
-//    val link = Uri.parse("https://ya.ru")
-//    val intent = Intent(Intent.ACTION_VIEW, link)
-//    startActivity(intent)
 }
